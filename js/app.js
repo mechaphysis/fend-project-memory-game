@@ -42,7 +42,3 @@ function shuffle(array) {
  evt.target.classList.toggle('open');
  }
  deck.addEventListener('click',toggleClass)
-/*
-cards[0].classList.toggle('show');
-cards[0].classList.toogle('open');
-*/
