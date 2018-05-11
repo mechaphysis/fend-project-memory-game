@@ -48,4 +48,7 @@ function shuffle(array) {
  deck.addEventListener('click',function (evt) {
   toggleClass(evt);
   openCards(evt);
+  if (openCardsList.length != 0) {
+    
+  }
  });
