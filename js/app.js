@@ -29,7 +29,7 @@ function shuffle(array) {
 /*
  * set up the event listener for a card. If a card is clicked:
  *  x display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
+ *  x add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
  *  - if the list already has another card, check to see if the two cards match
  *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
  *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
@@ -43,9 +43,7 @@ function shuffle(array) {
  }
  let openCardsList = [];
  function openCards (evt) {
-   if (evt.target.classList.contains('open')) {
      openCardsList.push(evt.target);
-   };
  };
  deck.addEventListener('click',function (evt) {
   toggleClass(evt);
