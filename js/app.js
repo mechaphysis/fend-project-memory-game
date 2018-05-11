@@ -47,4 +47,7 @@ function shuffle(array) {
      openCardsList.push(evt.target);
    };
  };
- deck.addEventListener('click',toggleClass);
+ deck.addEventListener('click',function () {
+  toggleClass;
+  openCardsList; 
+ });
