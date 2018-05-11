@@ -39,6 +39,7 @@ function shuffle(array) {
  let deck = document.querySelector('.deck')
  function toggleClass (evt) {
  evt.target.classList.toggle('show');
+ evt.target.classList.toggle('open');
  }
  deck.addEventListener('click',toggleClass)
 /*
