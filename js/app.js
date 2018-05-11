@@ -43,11 +43,11 @@ function shuffle(array) {
  }
  let openCardsList = [];
  function openCards (evt) {
-   if evt.target.classList.contains('open') {
+   if (evt.target.classList.contains('open')) {
      openCardsList.push(evt.target);
    };
  };
  deck.addEventListener('click',function () {
   toggleClass;
-  openCardsList; 
+  openCardsList;
  });
