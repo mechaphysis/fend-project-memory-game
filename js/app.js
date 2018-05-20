@@ -45,14 +45,15 @@ function shuffle(array) {
  function openCards (evt) {
      openCardsList.push(evt.target);
  };
+ function lockCards (e,evt.target) {
+
+ }
  deck.addEventListener('click',function (evt) {
   toggleClass(evt);
   openCards(evt);
   if (openCardsList.length != 0) {
-    for (e of openCardsList) {
-      if (e.children == evt.target.children) {
+      if (openCardsList[openCardsList.length - 1] == evt.target.children) {
         lockCards(e,evt.target);
       };
-    };
   };
  });
