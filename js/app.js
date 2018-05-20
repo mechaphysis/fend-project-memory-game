@@ -45,16 +45,24 @@ function shuffle(array) {
  function openCards (evt) {
      openCardsList.push(evt.target);
  };
- function lockCards (lastArrayItem,evt.target) {
-
+ function lockCards () {
+   openCardsList[0].classList.add('match');
+   openCardsList[1].classList.add('match');
+   openCardsList = [];
+ };
+ function removeCards () {
+   openCardsList[0].classList.remove('show','open');
+   openCardsList[1].classList.remove('show','open');
+   openCardsList = [];
  }
  deck.addEventListener('click',function (evt) {
   toggleClass(evt);
   openCards(evt);
-  if (openCardsList.length != 0) {
-    let lastArrayItem = openCardsList[openCardsList.length -1]
-      if (lastArrayItem == evt.target.children) {
-        lockCards(lastArrayItem,evt.target);
+  if (openCardsList.length == 2) {
+      if (openCardsList[0].innerHTML == openCardsList[1].innerHTML) {
+        lockCards();
+      } else {
+        removeCards();
       };
-  };
- });
+      };
+  });
