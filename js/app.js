@@ -33,7 +33,7 @@ function shuffle(array) {
  *  x if the list already has another card, check to see if the two cards match
  *    x |BUGGY| if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
  *    x |BUGGY| if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
+ *    x increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
  let deck = document.querySelector('.deck');
@@ -61,6 +61,10 @@ function shuffle(array) {
    count += 1;
    counter.innerText = count;
  };
+ let matchedCount = 0;
+ function matched() {
+
+ };
  deck.addEventListener('click',function (evt) {
   toggleClass(evt);
   openCards(evt);
@@ -68,8 +72,12 @@ function shuffle(array) {
   if (openCardsList.length == 2) {
       if (openCardsList[0].innerHTML == openCardsList[1].innerHTML) {
         lockCards();
+        matchedCount += 2;
       } else {
         removeCards();
       };
       };
+  if (matchedCount == 16) {
+    matched()
+  }
   });
