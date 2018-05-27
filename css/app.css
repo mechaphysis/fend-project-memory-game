@@ -116,11 +116,11 @@ h1 {
     display: none;
     position: fixed;
     z-index: 1; /* Sit on top */
-    /* left: 0; */
-    /* top: 0; */
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    /* overflow: auto; */
+    /* overflow: auto; */ /*This enables scrolling just in case*/
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4); /*Version with Opacity (Alpha channel) */
 }
