@@ -62,8 +62,9 @@ function shuffle(array) {
    counter.innerText = count;
  };
  let matchedCount = 0;
+ let modalPopup = document.querySelector('.popup');
  function matched() {
-
+   modalPopup.style.display = "block";
  };
  deck.addEventListener('click',function (evt) {
   toggleClass(evt);
