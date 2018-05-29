@@ -2,19 +2,12 @@
  * Create a list that holds all of your cards
  */
 let cards = document.getElementsByClassName('card');
+// Create an array from the list of cards, in order to being able to shuffle them
+let cardsArr = [...cards];
 // Define reset button
 let reset = document.querySelector('.restart');
 // Define stars
 let stars = document.querySelector('.stars');
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
- // Create an array from the list of cards, in order to being able to shuffle them
-let cardsArr = [...cards];
-
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -29,6 +22,13 @@ function shuffle(array) {
 
     return array;
 }
+/*
+* Display the cards on the page
+*   x shuffle the list of cards using the provided "shuffle" method below
+*   - loop through each card and create its HTML
+*   - add each card's HTML to the page
+*/
+
 // Apply the shuffle function
 shuffle(cardsArr);
 
