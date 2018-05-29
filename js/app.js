@@ -91,3 +91,11 @@ deck.appendChild(element);
     matched()
   }
   });
+
+reset.addEventListener('click',function(){
+  console.log('click en reset')
+  shuffledCards = shuffle(cardsArr);
+  shuffledCards.forEach(function(element){
+    deck.appendChild(element);
+  });
+});
