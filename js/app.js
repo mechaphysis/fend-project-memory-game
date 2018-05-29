@@ -1,3 +1,20 @@
+//Create a timer for the game:
+let hours = 0;
+let minutes = 0;
+let seconds = 0;
+setInterval(function(){
+console.log("The time is: "+hours+":"+minutes+":"+seconds)
+seconds++
+if (seconds == 60){
+minutes ++;
+seconds = 0;
+if (minutes == 60) {
+hours ++;
+minutes = 0;
+}
+}
+ }, 1000);
+
 /*
  * Create a list that holds all of your cards
  */
