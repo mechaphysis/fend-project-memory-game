@@ -9,6 +9,12 @@ let cardsArr = [...cards];
 let reset = document.querySelector('.restart');
 // Define stars
 let stars = document.querySelector('.stars');
+let counter = document.querySelector('.moves');
+let count = 0;
+function incremCounter(){
+  count += 1;
+  counter.innerText = count;
+};
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -30,7 +36,7 @@ function shuffle(array) {
 *   x add each card's HTML to the page
 */
 
-// Apply the shuffle function
+// Apply the shuffle function and append each shuffled card to deck
 let shuffledCards = shuffle(cardsArr);
 shuffledCards.forEach(function(element){
 deck.appendChild(element);
@@ -61,7 +67,23 @@ deck.appendChild(element);
            removeCards();
          };
          };
- };
+       };
+// functionality for decreasing Star Rating
+function starRating () {
+    switch (count) {
+      case 10:
+        stars.getElementsByClassName('fa')[2].classList.remove('fa-star');
+        stars.getElementsByClassName('fa')[2].classList.add('fa-star-o');
+        break;
+      case 20:
+      console.log('second condition for Star Rating triggered');
+      stars.getElementsByClassName('fa')[1].classList.remove('fa-star');
+      stars.getElementsByClassName('fa')[1].classList.add('fa-star-o');
+      break;
+      default:
+      console.log('This is a default case');
+    }
+}
  function lockCards () {
    openCardsList[0].classList.add('match');
    openCardsList[1].classList.add('match');
@@ -73,12 +95,6 @@ deck.appendChild(element);
   openCardsList[1].classList.remove('show','open');
   openCardsList = [];}, 500);
 };
- let counter = document.querySelector('.moves');
- let count = 0;
- function incremCounter(){
-   count += 1;
-   counter.innerText = count;
- };
  let matchedCount = 0;
  let modalPopup = document.querySelector('.popup');
  function matched() {
@@ -87,6 +103,7 @@ deck.appendChild(element);
  deck.addEventListener('click',function (evt) {
   toggleClass(evt);
   openCards(evt);
+  starRating();
   if (matchedCount == 16) {
     matched()
   }
