@@ -93,7 +93,8 @@ deck.appendChild(element);
   });
 
 reset.addEventListener('click',function(){
-  console.log('click en reset')
+  console.log('click en reset');
+  [...deck.children].forEach(function(el){el.classList.remove('match','open','show')});
   shuffledCards = shuffle(cardsArr);
   shuffledCards.forEach(function(element){
     deck.appendChild(element);
