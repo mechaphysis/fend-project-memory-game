@@ -40,8 +40,8 @@ deck.appendChild(element);
  *  x display the card's symbol (put this functionality in another function that you call from this one)
  *  x add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
  *  x if the list already has another card, check to see if the two cards match
- *    x |BUGGY| if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    x |BUGGY| if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
+ *    x if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
+ *    x if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
  *    x increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    x if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
@@ -52,6 +52,15 @@ deck.appendChild(element);
  let openCardsList = [];
  function openCards (evt) {
      openCardsList.push(evt.target);
+     if (openCardsList.length == 2) {
+         incremCounter();
+         if (openCardsList[0].innerHTML === openCardsList[1].innerHTML) {
+           lockCards();
+           matchedCount += 2;
+         } else {
+           removeCards();
+         };
+         };
  };
  function lockCards () {
    openCardsList[0].classList.add('match');
@@ -59,10 +68,11 @@ deck.appendChild(element);
    openCardsList = [];
  };
  function removeCards () {
-   openCardsList[0].classList.remove('show','open');
-   openCardsList[1].classList.remove('show','open');
-   openCardsList = [];
- };
+  setTimeout(function(){
+  openCardsList[0].classList.remove('show','open');
+  openCardsList[1].classList.remove('show','open');
+  openCardsList = [];}, 500);
+};
  let counter = document.querySelector('.moves');
  let count = 0;
  function incremCounter(){
@@ -77,15 +87,6 @@ deck.appendChild(element);
  deck.addEventListener('click',function (evt) {
   toggleClass(evt);
   openCards(evt);
-  incremCounter();
-  if (openCardsList.length == 2) {
-      if (openCardsList[0].innerHTML === openCardsList[1].innerHTML) {
-        lockCards();
-        matchedCount += 2;
-      } else {
-        removeCards();
-      };
-      };
   if (matchedCount == 16) {
     matched()
   }
