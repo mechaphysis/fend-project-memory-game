@@ -2,8 +2,21 @@
 let hours = 0;
 let minutes = 0;
 let seconds = 0;
+/*Simple padding function for displaying numbers in time format (two digit)
+From: https://stackoverflow.com/questions/6312993/
+*/
+function leftPad(number, targetLength) {
+    var output = number + '';
+    while (output.length < targetLength) {
+        output = '0' + output;
+    }
+    return output;
+}
+
+let timer = document.querySelector(".timer");
 setInterval(function(){
-console.log("The time is: "+hours+":"+minutes+":"+seconds)
+
+timer.innerText =leftPad(hours,2)+":"+leftPad(minutes,2)+":"+leftPad(seconds,2);
 seconds++
 if (seconds == 60){
 minutes ++;
