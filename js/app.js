@@ -12,6 +12,8 @@ let stars = document.querySelector('.stars');
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+ // Create an array from the list of cards, in order to being able to shuffle them
+let cardsArr = [...cards];
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -27,7 +29,8 @@ function shuffle(array) {
 
     return array;
 }
-
+// Apply the shuffle function
+shuffle(cardsArr);
 
 /*
  * set up the event listener for a card. If a card is clicked:
