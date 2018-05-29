@@ -1,6 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
+ let deck = document.querySelector('.deck');
 let cards = document.getElementsByClassName('card');
 // Create an array from the list of cards, in order to being able to shuffle them
 let cardsArr = [...cards];
@@ -25,13 +26,15 @@ function shuffle(array) {
 /*
 * Display the cards on the page
 *   x shuffle the list of cards using the provided "shuffle" method below
-*   - loop through each card and create its HTML
-*   - add each card's HTML to the page
+*   x loop through each card and create its HTML
+*   x add each card's HTML to the page
 */
 
 // Apply the shuffle function
-shuffle(cardsArr);
-
+let shuffledCards = shuffle(cardsArr);
+shuffledCards.forEach(function(element){
+deck.appendChild(element);
+})
 /*
  * set up the event listener for a card. If a card is clicked:
  *  x display the card's symbol (put this functionality in another function that you call from this one)
@@ -42,7 +45,6 @@ shuffle(cardsArr);
  *    x increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    x if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
- let deck = document.querySelector('.deck');
  function toggleClass (evt) {
  evt.target.classList.toggle('show');
  evt.target.classList.toggle('open');
