@@ -141,7 +141,13 @@ function starRating () {
 
 reset.addEventListener('click',function(){
   console.log('click en reset');
+  //Hidding all cards again
   [...deck.children].forEach(function(el){el.classList.remove('match','open','show')});
+  //Reseting timer
+  hours,minutes,seconds = 0;
+  //TO-DO: Reseting starRating
+
+  //Shuffling cards again
   shuffledCards = shuffle(cardsArr);
   shuffledCards.forEach(function(element){
     deck.appendChild(element);
