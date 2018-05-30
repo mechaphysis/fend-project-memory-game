@@ -2,16 +2,23 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [TO-DO](#to-do)
 * [Contributing](#contributing)
 
-## Instructions
+## TO-DO
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+* Add time spent in game and star rating to popup.
+* Link button to reset function
+* Modify Color palette and Background
+* Add CSS animations for clicking cards, matching and wrong. Perhaps for Shuffling too could be good
+* stop TIMER when all cards are matched
+* Complete the README detailing the game and its dependencies
 
-To get started, open `js/app.js` and start building out the app's functionality
+### Optional TO-DO
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+* Implement leaderboard, store game using local storage
+* Add keyboard shortcuts for playing
+
 
 ## Contributing
 
