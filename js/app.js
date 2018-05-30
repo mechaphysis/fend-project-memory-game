@@ -145,8 +145,9 @@ reset.addEventListener('click',function(){
   [...deck.children].forEach(function(el){el.classList.remove('match','open','show')});
   //Reseting timer
   hours,minutes,seconds = 0;
-  //TO-DO: Reseting starRating
-
+  //Reseting starRating
+  [...stars.getElementsByClassName('fa')].forEach(function(el){el.classList.remove('fa-star-o')});
+  [...stars.getElementsByClassName('fa')].forEach(function(el){el.classList.add('fa-star')});
   //Shuffling cards again
   shuffledCards = shuffle(cardsArr);
   shuffledCards.forEach(function(element){
