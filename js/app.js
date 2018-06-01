@@ -125,6 +125,21 @@ function starRating () {
   openCardsList[1].classList.remove('show','open');
   openCardsList = [];}, 500);
 };
+function restartGame() {
+  console.log('click en reset');
+  //Hidding all cards again
+  [...deck.children].forEach(function(el){el.classList.remove('match','open','show')});
+  //Reseting timer
+  hours,minutes,seconds = 0;
+  //Reseting starRating
+  [...stars.getElementsByClassName('fa')].forEach(function(el){el.classList.remove('fa-star-o')});
+  [...stars.getElementsByClassName('fa')].forEach(function(el){el.classList.add('fa-star')});
+  //Shuffling cards again
+  shuffledCards = shuffle(cardsArr);
+  shuffledCards.forEach(function(element){
+    deck.appendChild(element);
+  });
+}
  let matchedCount = 0;
  let modalPopup = document.querySelector('.popup');
  function matched() {
@@ -144,17 +159,12 @@ function starRating () {
   });
 
 reset.addEventListener('click',function(){
-  console.log('click en reset');
-  //Hidding all cards again
-  [...deck.children].forEach(function(el){el.classList.remove('match','open','show')});
-  //Reseting timer
-  hours,minutes,seconds = 0;
-  //Reseting starRating
-  [...stars.getElementsByClassName('fa')].forEach(function(el){el.classList.remove('fa-star-o')});
-  [...stars.getElementsByClassName('fa')].forEach(function(el){el.classList.add('fa-star')});
-  //Shuffling cards again
-  shuffledCards = shuffle(cardsArr);
-  shuffledCards.forEach(function(element){
-    deck.appendChild(element);
-  });
+  restartGame();
 });
+
+let tryAgain = document.querySelector('.tryAgain');
+
+tryAgain.addEventListener('click',function(){
+  modalPopup.style.display="none";
+  restartGame();
+})
