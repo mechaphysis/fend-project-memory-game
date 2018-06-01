@@ -129,12 +129,16 @@ function starRating () {
  let modalPopup = document.querySelector('.popup');
  function matched() {
    modalPopup.style.display = "block";
+   document.querySelector('.timeStat').innerHTML=timer;
+   document.querySelector('.starStat').innerHTML=stars;
+   document.querySelector('.moveStat').innerHTML=counter;
  };
  deck.addEventListener('click',function (evt) {
   toggleClass(evt);
   openCards(evt);
   starRating();
   if (matchedCount == 16) {
+    //TO-DO: stop TIMER
     matched()
   }
   });
