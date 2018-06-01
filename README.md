@@ -8,10 +8,12 @@
 ## TO-DO
 
 * Add time spent in game and star rating to popup.
+* Modify CSS for popUp to adapt for responsivenes
 * Link button to reset function
 * Modify Color palette and Background
 * Add CSS animations for clicking cards, matching and wrong. Perhaps for Shuffling too could be good
 * stop TIMER when all cards are matched
+* Responsivenes for different widths
 * Complete the README detailing the game and its dependencies
 
 ### Optional TO-DO
