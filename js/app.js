@@ -14,19 +14,19 @@ function leftPad(number, targetLength) {
 }
 
 let timer = document.querySelector(".timer");
-setInterval(function(){
-
-timer.innerText =leftPad(hours,2)+":"+leftPad(minutes,2)+":"+leftPad(seconds,2);
-seconds++
-if (seconds == 60){
-minutes ++;
-seconds = 0;
-if (minutes == 60) {
-hours ++;
-minutes = 0;
+function timerFunction() {
+  timer.innerText =leftPad(hours,2)+":"+leftPad(minutes,2)+":"+leftPad(seconds,2);
+  seconds++
+  if (seconds == 60){
+  minutes ++;
+  seconds = 0;
+  if (minutes == 60) {
+  hours ++;
+  minutes = 0;
+  }
+  }
 }
-}
- }, 1000);
+let intervalTimer = setInterval(timerFunction, 1000);
 
 /*
  * Create a list that holds all of your cards
@@ -131,6 +131,7 @@ function restartGame() {
   [...deck.children].forEach(function(el){el.classList.remove('match','open','show')});
   //Reseting timer
   hours,minutes,seconds = 0;
+  intervalTimer = setInterval(timerFunction, 1000);
   //Reseting starRating
   [...stars.getElementsByClassName('fa')].forEach(function(el){el.classList.remove('fa-star-o')});
   [...stars.getElementsByClassName('fa')].forEach(function(el){el.classList.add('fa-star')});
@@ -153,7 +154,9 @@ function restartGame() {
   openCards(evt);
   starRating();
   if (matchedCount == 16) {
-    //TO-DO: stop TIMER
+    //This stops the timer:
+    clearInterval(intervalTimer);
+    //This function calls for the popup display and shows the final stats for the player
     matched()
   }
   });
