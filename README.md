@@ -13,7 +13,7 @@ Rules are simple, click on any card to flip it and show the symbol, click on ano
 
 Good Luck & Have fun! :sparkles:
 
-### Further TO-DO
+### TO-DO
 
 * Add CSS animations for clicking cards, matching and wrong. Perhaps for Shuffling too could be good.
 * Implement leaderboard, store game using local storage.
