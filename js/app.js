@@ -1,10 +1,13 @@
 //Create a timer for the game:
+
 let hours = 0;
 let minutes = 0;
 let seconds = 0;
+
 /*Simple padding function for displaying numbers in time format (two digit)
 From: https://stackoverflow.com/questions/6312993/
 */
+
 function leftPad(number, targetLength) {
     var output = number + '';
     while (output.length < targetLength) {
@@ -14,6 +17,7 @@ function leftPad(number, targetLength) {
 }
 
 let timer = document.querySelector(".timer");
+
 function timerFunction() {
   timer.innerText =leftPad(hours,2)+":"+leftPad(minutes,2)+":"+leftPad(seconds,2);
   seconds++
@@ -26,29 +30,39 @@ function timerFunction() {
   }
   }
 }
+
 let intervalTimer = setInterval(timerFunction, 1000);
 
 /*
  * Create a list that holds all of your cards
  */
- let deck = document.querySelector('.deck');
+
+let deck = document.querySelector('.deck');
 let cards = document.getElementsByClassName('card');
+
 // Create an array from the list of cards, in order to being able to shuffle them
+
 let cardsArr = [...cards];
+
 // Define reset button
+
 let reset = document.querySelector('.restart');
+
 // Define stars
+
 let stars = document.querySelector('.stars');
 let counter = document.querySelector('.moves');
 let count = 0;
+
 function incremCounter(){
   count += 1;
   counter.innerText = count;
 };
+
 // Shuffle function from http://stackoverflow.com/a/2450976
+
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
-
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
@@ -56,9 +70,9 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-
     return array;
 }
+
 /*
 * Display the cards on the page
 *   x shuffle the list of cards using the provided "shuffle" method below
@@ -67,10 +81,13 @@ function shuffle(array) {
 */
 
 // Apply the shuffle function and append each shuffled card to deck
+
 let shuffledCards = shuffle(cardsArr);
+
 shuffledCards.forEach(function(element){
 deck.appendChild(element);
 })
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  x display the card's symbol (put this functionality in another function that you call from this one)
@@ -81,26 +98,31 @@ deck.appendChild(element);
  *    x increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    x if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
- function toggleClass (evt) {
- evt.target.classList.toggle('show');
- evt.target.classList.toggle('open');
- }
- let openCardsList = [];
- function openCards (evt) {
-     openCardsList.push(evt.target);
+
+function toggleClass (evt) {
+  evt.target.classList.toggle('show');
+  evt.target.classList.toggle('open');
+}
+
+let openCardsList = [];
+
+function openCards (evt) {
+  openCardsList.push(evt.target);
      if (openCardsList.length == 2) {
          incremCounter();
          if (openCardsList[0].innerHTML === openCardsList[1].innerHTML) {
-           lockCards();
-           matchedCount += 2;
+            lockCards();
+            matchedCount += 2;
          } else {
-           removeCards();
+            removeCards();
          };
-         };
-       };
+     };
+};
+
 // functionality for decreasing Star Rating
+
 function starRating () {
-    switch (count) {
+  switch (count) {
       case 10:
         stars.getElementsByClassName('fa')[2].classList.remove('fa-star');
         stars.getElementsByClassName('fa')[2].classList.add('fa-star-o');
@@ -114,17 +136,20 @@ function starRating () {
       console.log('This is a default case');
     }
 }
- function lockCards () {
-   openCardsList[0].classList.add('match');
-   openCardsList[1].classList.add('match');
-   openCardsList = [];
- };
- function removeCards () {
+
+function lockCards () {
+  openCardsList[0].classList.add('match');
+  openCardsList[1].classList.add('match');
+  openCardsList = [];
+};
+
+function removeCards () {
   setTimeout(function(){
   openCardsList[0].classList.remove('show','open');
   openCardsList[1].classList.remove('show','open');
   openCardsList = [];}, 500);
 };
+
 function restartGame() {
   console.log('click en reset');
   //Hidding all cards again
@@ -141,15 +166,18 @@ function restartGame() {
     deck.appendChild(element);
   });
 }
- let matchedCount = 0;
- let modalPopup = document.querySelector('.popup');
- function matched() {
-   modalPopup.style.visibility = "visible";
-   document.querySelector('.timeStat').innerHTML=timer.innerHTML;
-   document.querySelector('.starStat').innerHTML=stars.innerHTML;
-   document.querySelector('.moveStat').innerHTML=counter.innerHTML + " Moves";
+
+let matchedCount = 0;
+let modalPopup = document.querySelector('.popup');
+
+function matched() {
+  modalPopup.style.visibility = "visible";
+  document.querySelector('.timeStat').innerHTML=timer.innerHTML;
+  document.querySelector('.starStat').innerHTML=stars.innerHTML;
+  document.querySelector('.moveStat').innerHTML=counter.innerHTML + " Moves";
  };
- deck.addEventListener('click',function (evt) {
+
+deck.addEventListener('click',function (evt) {
   toggleClass(evt);
   openCards(evt);
   starRating();
@@ -159,7 +187,7 @@ function restartGame() {
     //This function calls for the popup display and shows the final stats for the player
     matched()
   }
-  });
+});
 
 reset.addEventListener('click',function(){
   restartGame();
