@@ -144,10 +144,10 @@ function restartGame() {
  let matchedCount = 0;
  let modalPopup = document.querySelector('.popup');
  function matched() {
-   modalPopup.style.display = "block";
-   document.querySelector('.timeStat').innerHTML=timer;
-   document.querySelector('.starStat').innerHTML=stars;
-   document.querySelector('.moveStat').innerHTML=counter;
+   modalPopup.style.visibility = "visible";
+   document.querySelector('.timeStat').innerHTML=timer.innerHTML;
+   document.querySelector('.starStat').innerHTML=stars.innerHTML;
+   document.querySelector('.moveStat').innerHTML=counter.innerHTML + " Moves";
  };
  deck.addEventListener('click',function (evt) {
   toggleClass(evt);
