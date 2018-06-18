@@ -154,7 +154,10 @@ function restartGame() {
   console.log('click en reset');
   //Hidding all cards again
   [...deck.children].forEach(function(el){el.classList.remove('match','open','show')});
+  //Reseting moves
+  counter.innerText = 0;
   //Reseting timer
+  clearInterval(intervalTimer);
   hours,minutes,seconds = 0;
   intervalTimer = setInterval(timerFunction, 1000);
   //Reseting starRating
@@ -178,14 +181,16 @@ function matched() {
  };
 
 deck.addEventListener('click',function (evt) {
-  toggleClass(evt);
-  openCards(evt);
-  starRating();
-  if (matchedCount == 16) {
-    //This stops the timer:
-    clearInterval(intervalTimer);
-    //This function calls for the popup display and shows the final stats for the player
-    matched()
+  if (evt.target != deck) {
+    toggleClass(evt);
+    openCards(evt);
+    starRating();
+    if (matchedCount == 16) {
+      //This stops the timer:
+      clearInterval(intervalTimer);
+      //This function calls for the popup display and shows the final stats for the player
+      matched()
+    }
   }
 });
 
