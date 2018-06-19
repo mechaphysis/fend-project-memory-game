@@ -19,7 +19,7 @@ let timer = document.querySelector(".timer");
 
 // This function gathers the timer running, it adds with each iteration in seconds and hold two conditionals to add up minutes and hours
 function timerFunction() {
-  timer.innerText =leftPad(hours,2)+":"+leftPad(minutes,2)+":"+leftPad(seconds,2);
+  timer.innerText =`${leftPad(hours, 2)}:${leftPad(minutes, 2)}:${leftPad(seconds, 2)}`;
   seconds++
   if (seconds == 60){
   minutes ++;
