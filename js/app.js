@@ -30,10 +30,10 @@ function timerFunction() {
   }
   }
 }
-
+//Define timer and wrap into a function its definition for further reuse:
+let intervalTimer;
 function startTimer(){
-  //Start the timer
-  let intervalTimer = setInterval(timerFunction, 1000);
+intervalTimer = setInterval(timerFunction, 1000);
 }
 
 /*
@@ -183,12 +183,14 @@ function restartGame() {
   console.log('click en reset');
   //Hidding all cards again
   [...deck.children].forEach(function(el){el.classList.remove('match','open','show')});
-  //Reseting moves
-  counter.innerText = 0;
+  //Reseting count variable
+  count = 0;
+  //Reseting moves counter:
+  counter.innerText=0;
   //Reseting timer
+  hours,minutes,seconds=0;
+  timer.innerText="00:00:00";
   clearInterval(intervalTimer);
-  hours,minutes,seconds = 0;
-  intervalTimer = setInterval(timerFunction, 1000);
   //Reseting starRating
   [...stars.getElementsByClassName('fa')].forEach(function(el){el.classList.remove('fa-star-o')});
   [...stars.getElementsByClassName('fa')].forEach(function(el){el.classList.add('fa-star')});
@@ -223,7 +225,7 @@ deck.addEventListener('click',function (evt) {
     incremCounter();
     // Trigger the start of the timer when user first clicks a card:
     if (count === 1) {
-      startTimer()
+      startTimer();
     }
     // if all cards are matched it triggers the following:
     if (matchedCount == 16) {
