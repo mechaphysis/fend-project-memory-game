@@ -106,6 +106,13 @@ function toggleClass (evt) {
 // Define a variable for storing the array of Open Cards
 let openCardsList = [];
 
+/* function for toggling disabling clicking on cards while checking for match in other cards
+ * This is in order to avoid the bug of the user clicking too fast and revealing several cards
+ * without the match checking being completed.
+ */
+function disableToggle() {
+  cardsArr.forEach(function(el){el.classList.toggle('disabled')});
+}
 /* This function controls the behaviour of opened cards.
  * It adds the open card to an array, and checks for match in case of two cards opened.
  * If the cards match it triggers the function lockCards() - so they stay open and locked -
@@ -115,11 +122,15 @@ let openCardsList = [];
 function openCards (evt) {
   openCardsList.push(evt.target);
      if (openCardsList.length == 2) {
+         disableToggle();
          if (openCardsList[0].innerHTML === openCardsList[1].innerHTML) {
             lockCards();
             matchedCount += 2;
+            disableToggle();
          } else {
+            disableToggle();
             removeCards();
+
          };
      };
 };
@@ -162,7 +173,7 @@ function removeCards () {
   setTimeout(function(){
   openCardsList[0].classList.remove('show','open');
   openCardsList[1].classList.remove('show','open');
-  openCardsList = [];}, 500);
+  openCardsList = [];}, 200);
 };
 
 /* This function restarts the game when the user clicks the reset button
