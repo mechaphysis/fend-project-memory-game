@@ -31,8 +31,10 @@ function timerFunction() {
   }
 }
 
-//Start the timer
-let intervalTimer = setInterval(timerFunction, 1000);
+function startTimer(){
+  //Start the timer
+  let intervalTimer = setInterval(timerFunction, 1000);
+}
 
 /*
  * Create a list that holds all of your cards
@@ -113,7 +115,6 @@ let openCardsList = [];
 function openCards (evt) {
   openCardsList.push(evt.target);
      if (openCardsList.length == 2) {
-         incremCounter();
          if (openCardsList[0].innerHTML === openCardsList[1].innerHTML) {
             lockCards();
             matchedCount += 2;
@@ -208,6 +209,11 @@ deck.addEventListener('click',function (evt) {
     toggleClass(evt);
     openCards(evt);
     starRating();
+    incremCounter();
+    // Trigger the start of the timer when user first clicks a card:
+    if (count === 1) {
+      startTimer()
+    }
     // if all cards are matched it triggers the following:
     if (matchedCount == 16) {
       //This stops the timer:
