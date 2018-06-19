@@ -2,6 +2,7 @@
 
 ## Table of Contents
 * [What it is](#what-is)
+* [Dependencies](#dependencies)
 * [TO-DO](#to-do)
 * [Contributing](#contributing)
 
@@ -12,6 +13,14 @@ This is a version of the very well known "Concentration Game". Nanodegree studen
 Rules are simple, click on any card to flip it and show the symbol, click on another to check if both match. If cards match they stay revealed, if not they will flip back again. The goal is to match all cards with as few moves as possible.
 
 Good Luck & Have fun! :sparkles:
+
+## How to play
+
+Click [here]( https://mechaphysis.github.io/fend-project-memory-game/) to play the game!
+
+## Dependencies
+
+This game was built using `font-awesome` and `Coda font` for the symbols displayed in cards.
 
 ### TO-DO
 
