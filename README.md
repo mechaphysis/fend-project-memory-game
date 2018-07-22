@@ -24,6 +24,7 @@ This game was built using `font-awesome` and `Coda font` for the symbols display
 
 ### TO-DO
 
+* Fix CSS for modal popup.
 * Add CSS animations for clicking cards, matching and wrong. Perhaps for Shuffling too could be good.
 * Implement leaderboard, store game using local storage.
 * Add keyboard shortcuts for playing.
