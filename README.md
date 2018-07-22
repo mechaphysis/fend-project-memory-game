@@ -16,7 +16,7 @@ Good Luck & Have fun! :sparkles:
 
 ## How to play
 
-Click [here]( https://mechaphysis.github.io/fend-project-memory-game/) to play the game!
+Click [here]( https://mechaphysis.github.io/frontend-memory-game/) to play the game!
 
 ## Dependencies
 
