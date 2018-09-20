@@ -24,10 +24,10 @@ This game was built using `font-awesome` and `Coda font` for the symbols display
 
 ### TO-DO
 
-* Fix CSS for modal popup.
-* Add CSS animations for clicking cards, matching and wrong. Perhaps for Shuffling too could be good.
-* Implement leaderboard, store game using local storage.
-* Add keyboard shortcuts for playing.
+* :ballot_box_with_check: Fix CSS for modal popup.
+* :black_square_button: Add CSS animations for clicking cards, matching and wrong. Perhaps for Shuffling too could be good.
+* :black_square_button: Implement leaderboard, store game using local storage.
+* :black_square_button: Add keyboard shortcuts for playing.
 
 
 ## Contributing
