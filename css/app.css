@@ -142,7 +142,6 @@ h1 {
 
 .popup-content {
     position: absolute;
-    display: flex;
     justify-content:center;
     align-items: center;
     top: 50%;
